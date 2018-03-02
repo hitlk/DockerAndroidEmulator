@@ -23,4 +23,4 @@ socat tcp-listen:5555,bind=$ip,fork tcp:127.0.0.1:5555 &
 
 #/usr/local/android-sdk/tools/bin/avdmanager create avd -f -n test -d 9 -k "system-images;android-23;google_apis;x86_64" -g google_apis -b "x86_64"
 echo "no" | /usr/local/android-sdk/tools/bin/avdmanager create avd -f -n test -d 9 -k "system-images;android-${EMULATOR};google_apis;x86_64" -g google_apis -b "x86_64"
-echo "no" | /usr/local/android-sdk/emulator/emulator -avd test -gpu host -skin 1080x1920 -cores 4 -memory 3000 -partition-size 8192 -netfast -netspeed full -netdelay none -noaudio -no-window -verbose -qemu -usbdevice tablet
+echo "no" | /usr/local/android-sdk/emulator/emulator -avd test -gpu host -use-system-libs -skin 1080x1920 -cores 4 -memory 3000 -partition-size 8192 -netfast -netspeed full -netdelay none -noaudio -no-window -verbose -qemu -usbdevice tablet

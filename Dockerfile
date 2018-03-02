@@ -90,6 +90,10 @@ RUN mkdir /var/run/sshd && \
     echo "export VISIBLE=now" >> /etc/profile
 
 ENV NOTVISIBLE "in users profile"
+
+# replace libGL.so
+ln -s -f /usr/local/android-sdk/emulator/lib64/gles_mesa/libGL.so.1 /usr/lib/x86_64-linux-gnu/mesa/
+
 # Add entrypoint
 ADD entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
